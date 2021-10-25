@@ -1,0 +1,82 @@
+
+---
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    controller-gen.kubebuilder.io/version: v0.4.1
+  creationTimestamp: null
+  name: customs.batch.custom.com
+spec:
+  group: batch.custom.com
+  names:
+    kind: Custom
+    listKind: CustomList
+    plural: customs
+    singular: custom
+  scope: Namespaced
+  versions:
+  - name: v1
+    schema:
+      openAPIV3Schema:
+        description: Custom is the Schema for the customs API
+        properties:
+          apiVersion:
+            description: 'APIVersion defines the versioned schema of this representation
+              of an object. Servers should convert recognized schemas to the latest
+              internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
+            type: string
+          kind:
+            description: 'Kind is a string value representing the REST resource this
+              object represents. Servers may infer this from the endpoint the client
+              submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+            type: string
+          metadata:
+            type: object
+          spec:
+            description: CustomSpec defines the desired state of Custom
+            properties:
+              containerPort:
+                format: int32
+                type: integer
+              deploymentName:
+                description: Deployment is an example field of Custom. Edit custom_types.go
+                  to remove/update
+                type: string
+              image:
+                type: string
+              replicas:
+                format: int32
+                type: integer
+              servicePort:
+                format: int32
+                type: integer
+              targetPort:
+                format: int32
+                type: integer
+            required:
+            - deploymentName
+            - image
+            type: object
+          status:
+            description: CustomStatus defines the observed state of Custom
+            properties:
+              availableReplicas:
+                format: int32
+                type: integer
+            required:
+            - availableReplicas
+            type: object
+        required:
+        - spec
+        type: object
+    served: true
+    storage: true
+    subresources:
+      status: {}
+status:
+  acceptedNames:
+    kind: ""
+    plural: ""
+  conditions: []
+  storedVersions: []

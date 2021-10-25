@@ -1,0 +1,11 @@
+apiVersion: batch.custom.com/v1
+kind: Custom
+metadata:
+  name: custom-sample
+spec:
+  deploymentName: customdeployment
+  replicas: 3
+  image: "rakibulhossain/apiserver:0.0.3"
+  containerPort: 8081
+  servicePort: 8081
+  targetPort: 8081

@@ -1,0 +1,16 @@
+domain: custom.com
+layout:
+- go.kubebuilder.io/v3
+projectName: apiserver-custom-controller-kubebuilder
+repo: github.com/Rakibul-Hossain
+resources:
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: custom.com
+  group: batch
+  kind: Custom
+  path: github.com/Rakibul-Hossain/api/v1
+  version: v1
+version: "3"

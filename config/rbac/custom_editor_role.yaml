@@ -1,0 +1,24 @@
+# permissions for end users to edit customs.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: custom-editor-role
+rules:
+- apiGroups:
+  - batch.custom.com
+  resources:
+  - customs
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - batch.custom.com
+  resources:
+  - customs/status
+  verbs:
+  - get
